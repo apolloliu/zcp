@@ -11,7 +11,7 @@ This project started as a way to integrate monitoring information collected in a
 * Allow to have one common monitoring system (e.g Zabbix) for several OpenStack-based Cloud Data Centres;
 * Support keystone v3 to allow multiple domains using multiple proxies;
 * Support rabbitmq clusters to consume messages from topics of keystone and nova;
-* Provide default template(Template Nova) to import through zabbix web interface;
+* Provide default template(Template ZCP) to import through zabbix web interface;
 * Provide mongo driver to retrive metrics from Ceilometer mongodb directly.
 
 ##Requirements
@@ -21,9 +21,10 @@ For installing Pika, if you already have _Python_ and the _pip_ packet manager c
 
 		sudo pip install -r requirement.txt
 
-If the previous command fails, download and manually install the library on the host where you intend to run the ZCP:
+If the previous command fails, download and manually install the library on the host where you intend to run the ZCP.
 
-**Note:** Since the purpose of this project is to be integrated with OpenStack and Zabbix it is assumed that apart from a running installation of these two, some knowledge of OpenStack has already been acquired.
+**Note:**
+Since the purpose of this project is to be integrated with OpenStack and Zabbix it is assumed that apart from a running installation of these two, some knowledge of OpenStack has already been acquired.
 
 ##Usage
 Assuming that all the above requirements are met, the ZCP can be run with 3 simple steps:
@@ -45,17 +46,18 @@ Assuming that all the above requirements are met, the ZCP can be run with 3 simp
 
 4. Finally, run the Zabbix-Ceilometer Proxy!
 
-		python proxy.py
+		eszcpolling
 
 If all goes well the information retrieved from OpenStack's Ceilometer will be pushed in your Zabbix monitoring system.
 
-**Note:** You can check out a demo from a premilinary version of ZCP running with OpenStack Havana and Zabbix [here](https://www.youtube.com/watch?v=DXz-W9fgvRk)
+**Note:** 
+You can check out a demo from a premilinary version of ZCP running with OpenStack Havana and Zabbix [here](https://www.youtube.com/watch?v=DXz-W9fgvRk)
 
 ##Source
 If not doing so already, you can check out the latest version of ZCP either through [github](https://github.com/apolloliu/ZCP).
 
 ##Copyright
-Copyright (c) 2014 OneSource Consultoria Informatica, Lda. [🔗](http://www.onesource.pt)
+Copyright (c) 2014 OneSource Consultoria Informatica, Lda.
 Copyright (c) 2017 EasyStack Inc.
 
 Thanks Cláudio Marques, David Palma and Luis Cordeiro for the original idea.

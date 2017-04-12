@@ -3,12 +3,12 @@ from setuptools import find_packages
 from setuptools import setup
 
 setup(
-    name="eszcp",
+    name="zcp",
     version="1.0.0",
-    author=["Branty","Hanxi Liu"],
-    author_email=["jun.wang@easystack.cn","hanxi.liu@easystack.cn"],
+    author="hanxi.liu",
+    author_email="apolloliuhx@gmail.com",
     packages=find_packages(),
     scripts=['bin/eszcp-polling'],
-    url="www.easystack.cn",
+    url="https://github.com/apolloliu/ZCP",
     description="A Timer task for polling ceilometer metrics into zabbix"
 )
