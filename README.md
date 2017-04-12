@@ -95,7 +95,9 @@ If not doing so already, you can check out the latest version of ZCP either thro
 Copyright
 ---------
 Copyright (c) 2014 OneSource Consultoria Informatica, Lda.
+
 Copyright (c) 2017 EasyStack Inc.
 
 Thanks Cláudio Marques, David Palma and Luis Cordeiro for the original idea.
+
 This project has been developed for the demand of Industrial Bank Co., Ltd by Branty and Hanxi Liu.
