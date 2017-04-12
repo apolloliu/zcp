@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+"""
+# -*- encoding: utf-8 -*-
+#
+# Copyright  2017 EasyStack, Inc
+#
+# Author: Branty <jun.wang@easystack.cn>
+#
+#
+"""
+import sys
+
+from eszcp.cmd.proxy import main
+
+if __name__ == "__main__":
+    sys.exit(main())
