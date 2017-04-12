@@ -36,42 +36,53 @@ Assuming that all the above requirements are met, the ZCP can be run with 3 simp
 
 1. On your OpenStack installation point to your Keystone configuration file (keystone.conf) and update notification_driver to messaging(only support this driver for now):
 
-> > notification_driver = messaging
+        notification_driver = messaging
 
 2. Remember to modify ceilometer event_pipline.yaml. When the setup of notification_driver is done, a number of events of 'identity.authenticate' will be put into
    ceilometer queue(notification.sample). There is no sense if record those events. The sample configuration in /etc/ceilometer/event_pipeline.yaml follows:
 
 > > sources:
+>
 > > > - name: event_source
+>
 > > > events:
+>
 > > > > - "*"
+>
 > > > > - "!identity.authenticate"
+>
 > > > sinks:
+>
 > > > > - event_sink
+>
 > > sinks:
+>
 > > > - name: event_sink
+>
 > > > > transformers:
+>
 > > > > publishers:
+>
 > > > > > - notifier://
 
 2. Create directory for ZCP's log file and configuration file:
 
-> > sudo mkdir /var/log/zcp/
-> > sudo mkdir /etc/zcp/
+        $ sudo mkdir /var/log/zcp/
+        $ sudo mkdir /etc/zcp/
 
 3. Copy `proxy.conf` to '/etc/zcp/' and edit the `proxy.conf` configuration file to reflect your own system, including the IP addresses and ports of Zabbix and of the used OpenStack modules (RabbitMQ, Ceilometer Keystone and Nova). You can also tweak some ZCP internal configurations such as the polling interval and proxy name (used in Zabbix).
 
-> > sudo cp etc/proxy.conf /etc/zcp/proxy.conf
+        $ sudo cp etc/proxy.conf /etc/zcp/proxy.conf
 
 4. Install zcp source code:
 
-> >  python setup.py install
+        $ python setup.py install
 
 5. Add template name(Use `Template ZCP` as default) under 'zcp_configs' and import the template to Zabbix through Zabbix Web Interface. You can see `Template ZCP` in Zabbix `Templates` if import success.
 
 6. Finally, run the Zabbix-Ceilometer Proxy in your console!
 
-> > eszcp-polling
+        $ eszcp-polling
 
 If all goes well the information retrieved from OpenStack's Ceilometer will be pushed in your Zabbix monitoring system.
 
