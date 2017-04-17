@@ -10,7 +10,8 @@ Welcome to zcp's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   install
+   installation
+   architecture 
 
 
 Indices and tables

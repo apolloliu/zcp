@@ -5,7 +5,7 @@
 ZCP is designed as a timer task for polling ceilometer metrics into zabbix.
 It is the abbreviation for Zabbix Ceilometer Proxy.
 
-.. image:: architecture.PNG
+.. image:: architecture.png
    :align: center
    :width: 80%
    :alt: ZCP architecture
@@ -14,12 +14,12 @@ It is the abbreviation for Zabbix Ceilometer Proxy.
 Why to integrate Ceilometer with Zabbix
 =======================================
 
-As we know, Zabbix_ is an excellent open source monitoring software which
-is designed to monitor and track the health status of a network and integrity
+As we know, Zabbix_ is an excellent open source monitoring software which is
+designed to monitor and track the health status of a network and integrity
 of servers. It provides great reporting and data visualisation features based
 on the stored data. All statistics, as well as configuration parameters, can
-be accessed through web-based frontend. Not only small organisations, but also large
-companies can equally use Zabbix to monitor IT infrastructure.
+be accessed through web-based frontend. Not only small organisations, but also
+large companies can equally use Zabbix to monitor IT infrastructure.
 
 On Ceilometer_ side, it is one of the most important data normalization and
 collection services. It allows users to push data to various target and
@@ -35,15 +35,15 @@ the data through Zabbix web-based frontend automatically.
 Architecture
 ============
 
-ZCP collect data and then push data to Zabbix server using Zabbix API.
+ZCP collects data and then push data to Zabbix server using Zabbix API.
 
 How to gather data?
 -------------------
 
 ZCP system offers two ways to gather information automatically:
 
-1. collecting event notifications from `notification Bus`. Now ZCP system only needs
-   events from keystone(tenant events) and nova(instance events).
+1. collecting event notifications from `notification Bus`. Now ZCP system
+   only needs events from keystone(tenant events) and nova(instance events).
 2. using Ceilometer_ RESTFul API to poll metrics periodically.
 
 .. _Ceilometer: https://docs.openstack.org/developer/ceilometer
@@ -64,16 +64,17 @@ ZCP implements several significant functions:
 4. periodically retrieve resources/meters from Ceilometer.
 5. provide mongo driver to poll metrics from Ceilometer mongodb directly.
 
-In addition, users just need one common monitoring system(e.g. Zabbix) for several
-OpenStack-based Cloud Data Centres.
+In addition, users just need one common monitoring system(e.g. Zabbix) for
+several OpenStack-based Cloud Data Centres.
 
 Mapping relationships
 ---------------------
 
+From the picture, you can see the relationships clearly:
 1. Proxy-Domain
 2. Host group-Project
 
-.. image:: mapping.PNG
+.. image:: mapping.png
    :align: center
    :width: 80%
    :alt: Mapping relationships
