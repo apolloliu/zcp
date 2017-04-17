@@ -14,14 +14,14 @@ It is the abbreviation for Zabbix Ceilometer Proxy.
 Why to integrate Ceilometer with Zabbix
 =======================================
 
-As we know, Zabbix is an excellent open source monitoring software which
+As we know, Zabbix_ is an excellent open source monitoring software which
 is designed to monitor and track the health status of a network and integrity
 of servers. It provides great reporting and data visualisation features based
 on the stored data. All statistics, as well as configuration parameters, can
 be accessed through web-based frontend. Not only small organisations, but also large
 companies can equally use Zabbix to monitor IT infrastructure.
 
-On Ceilometer side, it is one of the most important data normalization and
+On Ceilometer_ side, it is one of the most important data normalization and
 collection services. It allows users to push data to various target and
 customize various storage backend.
 
