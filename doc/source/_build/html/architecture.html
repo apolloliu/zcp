@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Project Architecture &#8212; zcp 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="project-architecture">
+<h1>Project Architecture<a class="headerlink" href="#project-architecture" title="Permalink to this headline">¶</a></h1>
+<p>ZCP is designed as a timer task for polling ceilometer metrics into zabbix.
+It is the abbreviation for Zabbix Ceilometer Proxy.</p>
+<a class="reference internal image-reference" href="_images/architecture.png"><img alt="ZCP architecture" class="align-center" src="_images/architecture.png" style="width: 80%;" /></a>
+<div class="section" id="why-to-integrate-ceilometer-with-zabbix">
+<h2>Why to integrate Ceilometer with Zabbix<a class="headerlink" href="#why-to-integrate-ceilometer-with-zabbix" title="Permalink to this headline">¶</a></h2>
+<p>As we know, <a class="reference external" href="https://www.zabbix.com/">Zabbix</a> is an excellent open source monitoring software which is
+designed to monitor and track the health status of a network and integrity
+of servers. It provides great reporting and data visualisation features based
+on the stored data. All statistics, as well as configuration parameters, can
+be accessed through web-based frontend. Not only small organisations, but also
+large companies can equally use Zabbix to monitor IT infrastructure.</p>
+<p>On <a class="reference external" href="https://docs.openstack.org/developer/ceilometer">Ceilometer</a> side, it is one of the most important data normalization and
+collection services. It allows users to push data to various target and
+customize various storage backend.</p>
+<p>ZCP was born for the integration between Zabbix and Ceilometer. To be direct,
+ZCP system get data from Ceilometer, push data to Zabbix and eventaully display
+the data through Zabbix web-based frontend automatically.</p>
+</div>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p>ZCP collects data and then push data to Zabbix server using Zabbix API.</p>
+<div class="section" id="how-to-gather-data">
+<h3>How to gather data?<a class="headerlink" href="#how-to-gather-data" title="Permalink to this headline">¶</a></h3>
+<p>ZCP system offers two ways to gather information automatically:</p>
+<ol class="arabic simple">
+<li>collecting event notifications from <cite>notification Bus</cite>. Now ZCP system
+only needs events from keystone(tenant events) and nova(instance events).</li>
+<li>using <a class="reference external" href="https://docs.openstack.org/developer/ceilometer">Ceilometer</a> RESTFul API to poll metrics periodically.</li>
+</ol>
+</div>
+<div class="section" id="main-features">
+<h3>Main Features<a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h3>
+<p>ZCP implements several significant functions:</p>
+<ol class="arabic simple">
+<li>support keystone v3. One proxy is the mapping of one domains in OpenStack.
+Users can create multiple proxies to meet demands.</li>
+<li>allow to deploy under the environment of RabbitMQ clusters and gather data
+from multiple rabbitmq servers.</li>
+<li>automatically gather information(tenants and instances now being considered).
+Seamlessly handle changes in the Cloud Infrastructure including creation
+and deletion of tenants and/or instances.</li>
+<li>periodically retrieve resources/meters from Ceilometer.</li>
+<li>provide mongo driver to poll metrics from Ceilometer mongodb directly.</li>
+</ol>
+<p>In addition, users just need one common monitoring system(e.g. Zabbix) for
+several OpenStack-based Cloud Data Centres.</p>
+</div>
+<div class="section" id="mapping-relationships">
+<h3>Mapping relationships<a class="headerlink" href="#mapping-relationships" title="Permalink to this headline">¶</a></h3>
+<p>From the picture, you can see the relationships clearly:
+1. Proxy-Domain
+2. Host group-Project</p>
+<a class="reference internal image-reference" href="_images/mapping.png"><img alt="Mapping relationships" class="align-center" src="_images/mapping.png" style="width: 80%;" /></a>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Project Architecture</a><ul>
+<li><a class="reference internal" href="#why-to-integrate-ceilometer-with-zabbix">Why to integrate Ceilometer with Zabbix</a></li>
+<li><a class="reference internal" href="#architecture">Architecture</a><ul>
+<li><a class="reference internal" href="#how-to-gather-data">How to gather data?</a></li>
+<li><a class="reference internal" href="#main-features">Main Features</a></li>
+<li><a class="reference internal" href="#mapping-relationships">Mapping relationships</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/architecture.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Hanxi Liu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/architecture.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
