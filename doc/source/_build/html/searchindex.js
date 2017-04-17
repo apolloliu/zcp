@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["index","install"],envversion:50,filenames:["index.rst","install.rst"],objects:{},objnames:{},objtypes:{},terms:{command:1,content:0,index:0,instal:0,line:1,modul:0,page:0,pip:1,search:0,setup:1},titles:["Welcome to zcp&#8217;s documentation!","Installation"],titleterms:{document:0,indic:0,instal:1,tabl:0,welcom:0,zcp:0}})
