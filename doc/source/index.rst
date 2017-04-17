@@ -11,7 +11,7 @@ Welcome to zcp's documentation!
    :caption: Contents:
 
    installation
-   architecture 
+   architecture
 
 
 Indices and tables
