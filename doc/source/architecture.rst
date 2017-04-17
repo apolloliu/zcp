@@ -5,9 +5,9 @@
 ZCP is designed as a timer task for polling ceilometer metrics into zabbix.
 
 .. image:: architecture.png
-   :align:: center
-   :width:: 80%
-   :alt:: ZCP architecture
+   :align: center
+   :width: 80%
+   :alt: ZCP architecture
 
 Why to design ZCP
 ------------------
