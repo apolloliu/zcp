@@ -30,8 +30,8 @@ For installing Pika, if you already have _Python_ and the _pip_ packet manager c
 
 If the previous command fails, download and manually install the library on the host where you intend to run the ZCP.
 
-**Note:**
-Since the purpose of this project is to be integrated with OpenStack and Zabbix it is assumed that apart from a running installation of these two, some knowledge of OpenStack has already been acquired.
+.. note::
+    Since the purpose of this project is to be integrated with OpenStack and Zabbix it is assumed that apart from a running installation of these two, some knowledge of OpenStack has already been acquired.
 
 Usage
 =====
@@ -41,21 +41,20 @@ Assuming that all the above requirements are met, the ZCP can be run with 3 simp
     notification_driver = messaging
 
 2. Remember to modify ceilometer `event_pipline.yaml`. When the setup of notification_driver is done, a number of events of `identity.authenticate` will be put into
-   ceilometer queue(notification.sample). There is no sense if record those events. The sample configuration in `/etc/ceilometer/event_pipeline.yaml` follows:
-
-        |sources:
-        |    - name: event_source
-        |      events:
-        |          - "*"
-        |          - "!identity.authenticate"
-        |      sinks:
-        |          - event_sink
-        |sinks:
-        |    - name: event_sink
-        |      transformers:
-        |      triggers:
-        |      publishers:
-        |          - notifier://
+   ceilometer queue(notification.sample). There is no sense if record those events. The sample configuration in `/etc/ceilometer/event_pipeline.yaml` follows::
+     | sources:
+     |    - name: event_source
+     |      events:
+     |          - "*"
+     |          - "!identity.authenticate"
+     |      sinks:
+     |          - event_sink
+     | sinks:
+     |    - name: event_sink
+     |      transformers:
+     |      triggers:
+     |      publishers:
+     |          - notifier://
 
 2. Create directory for ZCP's log file and configuration file:
     $ sudo mkdir /var/log/zcp/
@@ -74,7 +73,8 @@ Assuming that all the above requirements are met, the ZCP can be run with 3 simp
 
 If all goes well the information retrieved from OpenStack's Ceilometer will be pushed in your Zabbix monitoring system.
 
-.. note:: You can check out a demo_ from a premilinary version of ZCP running with OpenStack Havana and Zabbix.
+.. note::
+    You can check out a demo_ from a premilinary version of ZCP running with OpenStack Havana and Zabbix.
 
 .. _demo: https://www.youtube.com/watch?v=DXz-W9fgvRk
 
