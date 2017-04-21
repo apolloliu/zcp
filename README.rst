@@ -1,12 +1,15 @@
+========================
 Zabbix-Ceilometer Proxy
 ========================
+.. image:: https://img.shields.io/pypi/v/zcp.svg
+    :target: https://github.com/apolloliu/zcp
 
 Objective
----------
+=========
 This project started as a way to integrate monitoring information collected in a Cloud environment, namely by OpenStack's Ceilometer, integrating it with an already existing monitoring solution using Zabbix.
 
 Features
---------
+========
 * Integration of OpenStack's available monitoring information (e.g. using Ceilometer) with already existing Monitoring systems (e.g. Zabbix);
 * Automatically gather information about the existing Cloud Infrastructure being considered (tenants, instances);
 * Seamlessly handle changes in the Cloud Infrastructure (creation and deletion of tenants and/or instances);
@@ -18,7 +21,7 @@ Features
 * Provide mongo driver to retrive metrics from Ceilometer mongodb directly.
 
 Requirements
-------------
+============
 The Zabbix-Ceilometer Proxy was written using _Python_ version 2.7.5 but can be easily ported to version 3. It uses the Pika library for support of AMQP protocol, used by OpenStack.
 
 For installing Pika, if you already have _Python_ and the _pip_ packet manager configured, you need only to use a terminal/console and simply run following command under the project directory:
@@ -31,7 +34,7 @@ If the previous command fails, download and manually install the library on the 
 Since the purpose of this project is to be integrated with OpenStack and Zabbix it is assumed that apart from a running installation of these two, some knowledge of OpenStack has already been acquired.
 
 Usage
------
+=====
 Assuming that all the above requirements are met, the ZCP can be run with 3 simple steps:
 
 1. On your OpenStack installation point to your Keystone configuration file (keystone.conf) and update `notification_driver` to messaging(only support this driver for now):
@@ -41,29 +44,20 @@ Assuming that all the above requirements are met, the ZCP can be run with 3 simp
 2. Remember to modify ceilometer `event_pipline.yaml`. When the setup of notification_driver is done, a number of events of `identity.authenticate` will be put into
    ceilometer queue(notification.sample). There is no sense if record those events. The sample configuration in `/etc/ceilometer/event_pipeline.yaml` follows:
 
-> > sources:
->
-> > > - name: event_source
->
-> > > events:
->
-> > > > - "*"
->
-> > > > - "!identity.authenticate"
->
-> > > sinks:
->
-> > > > - event_sink
->
-> > sinks:
->
-> > > - name: event_sink
->
-> > > > transformers:
->
-> > > > publishers:
->
-> > > > > - notifier://
+        ---
+        sources:
+            - name: event_source
+              events:
+                  - "*"
+                  - "!identity.authenticate"
+              sinks:
+                  - event_sink
+        sinks:
+            - name: event_sink
+              transformers:
+              triggers:
+              publishers:
+                  - notifier://
 
 2. Create directory for ZCP's log file and configuration file:
 
@@ -86,18 +80,20 @@ Assuming that all the above requirements are met, the ZCP can be run with 3 simp
 
 If all goes well the information retrieved from OpenStack's Ceilometer will be pushed in your Zabbix monitoring system.
 
-**Note:** You can check out a demo from a premilinary version of ZCP running with OpenStack Havana and Zabbix [here](https://www.youtube.com/watch?v=DXz-W9fgvRk)
+.. note:: You can check out a demo_ from a premilinary version of ZCP running with OpenStack Havana and Zabbix.
+
+.. _demo: https://www.youtube.com/watch?v=DXz-W9fgvRk
 
 Source
-------
-If not doing so already, you can check out the latest version of ZCP either through [github](https://github.com/apolloliu/zcp).
+======
+If not doing so already, you can check out the latest version of ZCP_.
+
+.. _ZCP: https://github.com/apolloliu/zcp
 
 Copyright
----------
+=========
 Copyright (c) 2014 OneSource Consultoria Informatica, Lda.
-
 Copyright (c) 2017 EasyStack Inc.
 
 Thanks Cláudio Marques, David Palma and Luis Cordeiro for the original idea.
-
 This project has been developed for the demand of Industrial Bank Co., Ltd by Branty and Hanxi Liu.
