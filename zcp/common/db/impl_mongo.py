@@ -13,6 +13,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import datetime
+import logging
 import os
 import pymongo
 import six
@@ -20,12 +21,11 @@ import time
 
 from eszcp import exceptions
 from eszcp.common import conf
-from eszcp.common import log
 from eszcp.common.db import models
 from eszcp.common.db import pymongo_utils
 from eszcp import utils
 
-LOG = log.logger(__name__)
+LOG = logging.getLogger(__name__)
 CONF = conf.Conf()
 
 MAX_RETRIES = CONF.read_option('mongodb', 'max_retries', 3)

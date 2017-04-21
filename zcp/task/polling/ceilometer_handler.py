@@ -23,15 +23,15 @@ Class for polling Ceilometer
 This class provides means to requests for authentication
 tokens to be used with OpenStack's Ceilometer, Nova and RabbitMQ
 """
+import logging
 
 from eszcp.ceilometer_client import Client as CeiloV20
-from eszcp.common import log
 from eszcp import utils
 from eszcp.task.polling import INSTANCE_METRICS, NETWORK_METRICS
 from eszcp.task.polling.base_handler import Handler
 
 
-LOG = log.logger(__name__)
+LOG = logging.getLogger(__name__)
 
 METRIC_CACEHES = {}
 
@@ -168,7 +168,7 @@ class CeilometerHandler(Handler):
                     else:
                         LOG.info("The metric %s of resource_id %s statistics "
                                  "not found." % (metric, rsc_id))
-                    LOG.info("Polling Ceilometer metri into zabbix proxy: %s,"
+                    LOG.info("Polling Ceilometer metrics into Zabbix, proxy: %s, "
                              "resource_id: %s, metric: %s, counter_name: %s"
                              % (rsc_id, metric, counter_volume, proxy_name))
                     self.zabbix_hdl.send_data_zabbix(counter_volume,

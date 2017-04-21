@@ -25,7 +25,7 @@ them to Zabbix. It is also integrated
 OpenStack's Nova and RabbitMQ for reflecting changes in
 Projects/Tenants and Instances
 """
-
+import logging
 import multiprocessing
 
 from eszcp.common import log
@@ -38,8 +38,8 @@ from eszcp.nova_client import Client as nova_Client
 from eszcp import messaging
 from eszcp import zabbix_handler
 
-log.initlog()
-LOG = log.logger(__name__)
+log.init_log()
+LOG = logging.getLogger(__name__)
 conf_file = conf.Conf()
 
 
@@ -94,12 +94,12 @@ def init_zcp(processes):
                                                    ks_client)
 
     # Create and append processes to process list
-    LOG.INFO('**************** Keystone listener started ****************')
+    LOG.info('**************** Keystone listener started ****************')
     p1 = multiprocessing.Process(target=keystone_hdl.keystone_amq)
     p1.daemon = True
     processes.append(p1)
 
-    LOG.INFO('**************** Nova listener started ****************')
+    LOG.info('**************** Nova listener started ****************')
     p2 = multiprocessing.Process(target=nova_hdl.nova_amq)
     p2.daemon = True
     processes.append(p2)

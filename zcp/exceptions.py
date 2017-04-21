@@ -34,3 +34,8 @@ class NotImplementedError(NotImplementedError):
 class MappingFileNotFound(ZcpException):
     """Not find mapping.json"""
     pass
+
+
+class LogConfigurationNotFound(ZcpException):
+    """Error configuration about log file path"""
+    pass

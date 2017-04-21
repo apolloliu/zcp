@@ -27,12 +27,11 @@ and query requirements for keystone projects and domains
 """
 
 import functools
+import logging
 from keystoneclient.v3 import client as ks_client_v3
 
-from eszcp.common import log
 
-
-LOG = log.logger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 def logged(func):

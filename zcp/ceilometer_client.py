@@ -12,15 +12,15 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
+import logging
 import functools
+
 from ceilometerclient.v2 import client as clm_clientv20
 
-from eszcp.common import log
 from eszcp.common import conf
 
 CONF = conf.Conf()
-LOG = log.logger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 def logged(func):

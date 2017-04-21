@@ -27,11 +27,10 @@ implementing the necessary callbacks for Keystone events
 """
 
 import json
+import logging
 
-from eszcp.common import log
 
-
-LOG = log.logger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 class KeystoneEvents:

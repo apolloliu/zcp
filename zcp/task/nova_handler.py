@@ -27,11 +27,10 @@ necessary callbacks for Nova events
 """
 
 import json
+import logging
 
-from eszcp.common import log
 
-
-LOG = log.logger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 class NovaEvents:

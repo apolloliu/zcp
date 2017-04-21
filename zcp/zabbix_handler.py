@@ -27,16 +27,16 @@ including access to several API methods
 
 import functools
 import json
+import logging
 import socket
 import struct
 import urllib2
 
-from eszcp.common import log
 from eszcp import exceptions
 from eszcp import utils
 
 
-LOG = log.logger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 def logged(func):

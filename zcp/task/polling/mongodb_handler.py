@@ -12,16 +12,15 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
+import logging
 import time
 
-from eszcp.common import log
 from eszcp.common.db import impl_mongo
 from eszcp.task.polling import INSTANCE_METRICS, NETWORK_METRICS
 from eszcp.task.polling.base_handler import Handler
 from eszcp import utils
 
-LOG = log.logger(__name__)
+LOG = logging.getLogger(__name__)
 METRIC_CACEHES = {}
 
 
@@ -150,7 +149,7 @@ class MongoHandler(Handler):
                     else:
                         LOG.info("The metric %s of resource_id %s statistics "
                                  "not found." % (metric, rsc_id))
-                    LOG.info("Polling Ceilometer metri into zabbix proxy: %s,"
+                    LOG.info("Polling Ceilometer metrics into Zabbix, proxy: %s, "
                              "resource_id: %s, metric: %s, counter_name: %s"
                              % (rsc_id, metric, counter_volume, proxy_name))
                     self.zabbix_hdl.send_data_zabbix(counter_volume,
