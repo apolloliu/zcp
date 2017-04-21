@@ -34,12 +34,12 @@ Usage
 -----
 Assuming that all the above requirements are met, the ZCP can be run with 3 simple steps:
 
-1. On your OpenStack installation point to your Keystone configuration file (keystone.conf) and update notification_driver to messaging(only support this driver for now):
+1. On your OpenStack installation point to your Keystone configuration file (keystone.conf) and update `notification_driver` to messaging(only support this driver for now):
 
         notification_driver = messaging
 
-2. Remember to modify ceilometer event_pipline.yaml. When the setup of notification_driver is done, a number of events of 'identity.authenticate' will be put into
-   ceilometer queue(notification.sample). There is no sense if record those events. The sample configuration in /etc/ceilometer/event_pipeline.yaml follows:
+2. Remember to modify ceilometer `event_pipline.yaml`. When the setup of notification_driver is done, a number of events of `identity.authenticate` will be put into
+   ceilometer queue(notification.sample). There is no sense if record those events. The sample configuration in `/etc/ceilometer/event_pipeline.yaml` follows:
 
 > > sources:
 >
@@ -70,7 +70,7 @@ Assuming that all the above requirements are met, the ZCP can be run with 3 simp
         $ sudo mkdir /var/log/zcp/
         $ sudo mkdir /etc/zcp/
 
-3. Copy `proxy.conf` to '/etc/zcp/' and edit the `proxy.conf` configuration file to reflect your own system, including the IP addresses and ports of Zabbix and of the used OpenStack modules (RabbitMQ, Ceilometer Keystone and Nova). You can also tweak some ZCP internal configurations such as the polling interval and proxy name (used in Zabbix).
+3. Copy `proxy.conf` to `/etc/zcp/` and edit the `proxy.conf` configuration file to reflect your own system, including the IP addresses and ports of Zabbix and of the used OpenStack modules (RabbitMQ, Ceilometer Keystone and Nova). You can also tweak some ZCP internal configurations such as the polling interval and proxy name (used in Zabbix).
 
         $ sudo cp etc/proxy.conf /etc/zcp/proxy.conf
 
@@ -90,7 +90,7 @@ If all goes well the information retrieved from OpenStack's Ceilometer will be p
 
 Source
 ------
-If not doing so already, you can check out the latest version of ZCP either through [github](https://github.com/apolloliu/ZCP).
+If not doing so already, you can check out the latest version of ZCP either through [github](https://github.com/apolloliu/zcp).
 
 Copyright
 ---------
