@@ -13,6 +13,7 @@ Welcome to zcp's documentation!
    installation
    architecture
 
+.. include:: ../../README.rst
 
 Indices and tables
 ==================

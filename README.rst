@@ -30,7 +30,7 @@ It uses the Pika library for support of AMQP protocol, used by OpenStack.
 For installing Pika, if you already have _Python_ and the _pip_ packet manager configured, you need only to
 use a terminal/console and simply run following command under the project directory::
 
-    sudo pip install -r requirement.txt
+        sudo pip install -r requirement.txt
 
 If the previous command fails, download and manually install the library on the host where you intend to
 run the ZCP.
@@ -110,7 +110,9 @@ If not doing so already, you can check out the latest version of ZCP_.
 Copyright
 =========
 Copyright (c) 2014 OneSource Consultoria Informatica, Lda.
+
 Copyright (c) 2017 EasyStack Inc.
 
 Thanks Cláudio Marques, David Palma and Luis Cordeiro for the original idea.
+
 This project has been developed for the demand of Industrial Bank Co., Ltd by Branty and Hanxi Liu.
