@@ -2,7 +2,7 @@
 Zabbix-Ceilometer Proxy
 ========================
 .. image:: https://img.shields.io/pypi/v/zcp.svg
-    :target: https://github.com/apolloliu/zcp
+    :target: https://pypi.python.org/pypi/zcp/1.0.1
 
 Objective
 =========
