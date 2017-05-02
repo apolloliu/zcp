@@ -28,15 +28,15 @@ Projects/Tenants and Instances
 import logging
 import multiprocessing
 
-from eszcp.common import log
-from eszcp.common import conf
-from eszcp.task.polling.base_handler import HandlerAdapter
-from eszcp.task import nova_handler
-from eszcp.task import keystone_handler
-from eszcp.keystone_client import Client
-from eszcp.nova_client import Client as nova_Client
-from eszcp import messaging
-from eszcp import zabbix_handler
+from zcp.common import log
+from zcp.common import conf
+from zcp.task.polling.base_handler import HandlerAdapter
+from zcp.task import nova_handler
+from zcp.task import keystone_handler
+from zcp.keystone_client import Client
+from zcp.nova_client import Client as nova_Client
+from zcp import messaging
+from zcp import zabbix_handler
 
 log.init_log()
 LOG = logging.getLogger(__name__)

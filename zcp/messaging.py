@@ -16,7 +16,7 @@ import logging
 import pika
 import time
 
-from eszcp.common import conf
+from zcp.common import conf
 
 
 LOG = logging.getLogger(__name__)

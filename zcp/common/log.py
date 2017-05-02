@@ -17,8 +17,8 @@ import logging
 from logging.config import fileConfig
 import os
 
-from eszcp.exceptions import LogConfigurationNotFound
-from eszcp.common import conf
+from zcp.exceptions import LogConfigurationNotFound
+from zcp.common import conf
 
 cfg_file = conf.Conf()
 log_dir = cfg_file.read_option('log', 'log_dir')

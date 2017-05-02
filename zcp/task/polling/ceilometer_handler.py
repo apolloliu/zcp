@@ -25,10 +25,10 @@ tokens to be used with OpenStack's Ceilometer, Nova and RabbitMQ
 """
 import logging
 
-from eszcp.ceilometer_client import Client as CeiloV20
-from eszcp import utils
-from eszcp.task.polling import INSTANCE_METRICS, NETWORK_METRICS
-from eszcp.task.polling.base_handler import Handler
+from zcp.ceilometer_client import Client as CeiloV20
+from zcp import utils
+from zcp.task.polling import INSTANCE_METRICS, NETWORK_METRICS
+from zcp.task.polling.base_handler import Handler
 
 
 LOG = logging.getLogger(__name__)

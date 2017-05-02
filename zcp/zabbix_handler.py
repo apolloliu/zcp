@@ -32,8 +32,8 @@ import socket
 import struct
 import urllib2
 
-from eszcp import exceptions
-from eszcp import utils
+from zcp import exceptions
+from zcp import utils
 
 
 LOG = logging.getLogger(__name__)

@@ -19,11 +19,11 @@ import pymongo
 import six
 import time
 
-from eszcp import exceptions
-from eszcp.common import conf
-from eszcp.common.db import models
-from eszcp.common.db import pymongo_utils
-from eszcp import utils
+from zcp import exceptions
+from zcp.common import conf
+from zcp.common.db import models
+from zcp.common.db import pymongo_utils
+from zcp import utils
 
 LOG = logging.getLogger(__name__)
 CONF = conf.Conf()

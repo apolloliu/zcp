@@ -10,7 +10,7 @@
 """
 import sys
 
-from eszcp.cmd.proxy import main
+from zcp.cmd.proxy import main
 
 if __name__ == "__main__":
     sys.exit(main())

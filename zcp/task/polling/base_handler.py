@@ -15,14 +15,14 @@
 import logging
 import time
 
-from eszcp.common import conf
-from eszcp import exceptions
+from zcp.common import conf
+from zcp import exceptions
 
 LOG = logging.getLogger(__name__)
 
 SUPPORTED_HANDLERS = {
-    'ceilometer': 'eszcp.task.polling.ceilometer_handler',
-    'mongodb': 'eszcp.task.polling.mongodb_handler'
+    'ceilometer': 'zcp.task.polling.ceilometer_handler',
+    'mongodb': 'zcp.task.polling.mongodb_handler'
     }
 
 
@@ -82,12 +82,12 @@ class HandlerAdapter(object):
             raise exceptions.NotImplementedError
         try:
             module = __import__(SUPPORTED_HANDLERS.get(polling_handler),
-                                fromlist=['eszcp'])
+                                fromlist=['zcp'])
             return module.get_handler(conf, *args)
         except ImportError or ValueError as e:
             LOG.error('Module %s not found in  Python package %s'
                       % (SUPPORTED_HANDLERS.get('polling_handler'),
-                         'eszcp'))
+                         'zcp'))
             raise
         except AttributeError or TypeError as e:
             msg = getattr(e, 'msg', '') or getattr(e, 'message', '')

@@ -7,6 +7,6 @@ setup(
     author="hanxi.liu",
     author_email="apolloliuhx@gmail.com",
     packages=find_packages(),
-    scripts=['bin/eszcp-polling'],
+    scripts=['bin/zcp-polling'],
     description="A Timer task for polling ceilometer metrics into zabbix"
 )

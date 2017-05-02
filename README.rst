@@ -90,7 +90,7 @@ Assuming that all the above requirements are met, the ZCP can be run with 3 simp
 
 6. Finally, run the Zabbix-Ceilometer Proxy in your console::
 
-    $ eszcp-polling
+    $ zcp-polling
 
 If all goes well the information retrieved from OpenStack's Ceilometer will be pushed in your Zabbix
 monitoring system.

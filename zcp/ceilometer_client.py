@@ -17,7 +17,7 @@ import functools
 
 from ceilometerclient.v2 import client as clm_clientv20
 
-from eszcp.common import conf
+from zcp.common import conf
 
 CONF = conf.Conf()
 LOG = logging.getLogger(__name__)

@@ -15,10 +15,10 @@
 import logging
 import time
 
-from eszcp.common.db import impl_mongo
-from eszcp.task.polling import INSTANCE_METRICS, NETWORK_METRICS
-from eszcp.task.polling.base_handler import Handler
-from eszcp import utils
+from zcp.common.db import impl_mongo
+from zcp.task.polling import INSTANCE_METRICS, NETWORK_METRICS
+from zcp.task.polling.base_handler import Handler
+from zcp import utils
 
 LOG = logging.getLogger(__name__)
 METRIC_CACEHES = {}
