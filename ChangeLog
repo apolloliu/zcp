@@ -1,0 +1,37 @@
+CHANGES
+=======
+
+* Update demo link
+* Fix log file name
+* Rename eszcp-polling
+* Fix default template name
+* Move eszcp to zcp
+* Update zcp image target
+* Add README to doc index
+* Fix README
+* Fix README
+* Fix several forat of README.rst
+* Change README.md to README.rst
+* Update architecture image and repo link
+* Add logging configuration file and imporve log output
+* Update architecture.png
+* Update architecture photos
+* update version info and doc index
+* Update setup.py
+* Update README
+* Update doc
+* Update doc and html
+* Update doc
+* Update architecture doc
+* Update architecture doc
+* Update architecture
+* Add architecture document
+* deplot Sphinx for doc support and add setup.cfg
+* Format REAMDE
+* Update README format
+* Update README
+* Update README
+* Rename directory name and update README
+* Update README
+* Create ZCP project
+* Initial commit
