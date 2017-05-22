@@ -4,6 +4,10 @@ Zabbix-Ceilometer Proxy
 .. image:: https://img.shields.io/pypi/v/zcp.svg
     :target: https://pypi.python.org/pypi/zcp/1.0.1
 
+.. image:: https://travis-ci.org/apolloliu/zcp.svg?branch=master
+    :target: https://travis-ci.org/apolloliu/zcp
+
+
 Objective
 =========
 This project started as a way to integrate monitoring information collected in a Cloud environment,
