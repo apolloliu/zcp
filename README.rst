@@ -99,7 +99,7 @@ monitoring system.
 
     You can check out a demo_ from a premilinary version of ZCP running with OpenStack Havana and Zabbix.
 
-.. _demo: https://www.youtube.com/watch?v=DXz-W9fgvRk
+.. _demo: https://youtu.be/Yc_MM08RwiA
 
 Source
 ======
